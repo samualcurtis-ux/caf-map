@@ -44,6 +44,15 @@
 							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
 								)();
 								</script>
+							<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
 							
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -224,6 +233,44 @@ function fetchNext(){
         }
         if(bestSac){m.s=bestSac;nearest++;}
       });
+      // Generate convex hull boundaries for uncovered marker clusters
+      function chull(pts){
+        pts.sort(function(a,b){return a.lng-b.lng||a.lat-b.lat;});
+        if(pts.length<=1)return pts;
+        function cr(O,A,B){return(A.lng-O.lng)*(B.lat-O.lat)-(A.lat-O.lat)*(B.lng-O.lng);}
+        var lo=[];for(var i=0;i<pts.length;i++){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],pts[i])<=0)lo.pop();lo.push(pts[i]);}
+        var up=[];for(var i=pts.length-1;i>=0;i--){while(up.length>=2&&cr(up[up.length-2],up[up.length-1],pts[i])<=0)up.pop();up.push(pts[i]);}
+        lo.pop();up.pop();return lo.concat(up);
+      }
+      var outside=[];
+      allMarkers.forEach(function(m){
+        var ins=false;
+        for(var i=0;i<sacPolys.length;i++){var sp=sacPolys[i];if(m.lat>=sp.s&&m.lat<=sp.n&&m.lng>=sp.w&&m.lng<=sp.e){ins=true;break;}}
+        if(!ins)outside.push({lat:m.lat,lng:m.lng,s:m.s});
+      });
+      var gd={};
+      outside.forEach(function(m){
+        var gk=Math.floor(m.lat/0.15)+"_"+Math.floor(m.lng/0.15)+"_"+m.s;
+        if(!gd[gk])gd[gk]=[];gd[gk].push(m);
+      });
+      var cm2={};Object.keys(gd).forEach(function(k){var p=k.split("_");cm2[k]={r:parseInt(p[0]),c:parseInt(p[1]),sac:p[2],pts:gd[k],comp:-1};});
+      var cid=0,comps={};
+      Object.keys(cm2).forEach(function(k){
+        if(cm2[k].comp>=0)return;
+        var q=[k];cm2[k].comp=cid;comps[cid]=[];
+        while(q.length>0){var cu=q.shift();var cl=cm2[cu];comps[cid]=comps[cid].concat(cl.pts);
+          for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;var nk=(cl.r+dr)+"_"+(cl.c+dc)+"_"+cl.sac;
+            if(cm2[nk]&&cm2[nk].comp<0){cm2[nk].comp=cid;q.push(nk);}}
+        }cid++;
+      });
+      Object.keys(comps).forEach(function(id){
+        var pts=comps[id];if(pts.length<10)return;
+        var hull=chull(pts);if(hull.length<3)return;
+        var ct={lat:hull.reduce(function(a,p){return a+p.lat},0)/hull.length,lng:hull.reduce(function(a,p){return a+p.lng},0)/hull.length};
+        var buf=hull.map(function(p){return[ct.lat+(p.lat-ct.lat)*1.03,ct.lng+(p.lng-ct.lng)*1.03];});
+        var poly=L.polygon(buf,{color:SAC_COLORS[pts[0].s],weight:2,opacity:0.6,fillColor:SAC_COLORS[pts[0].s],fillOpacity:0.05,dashArray:"5,5"});
+        poly._sac=pts[0].s;sacLayer.addLayer(poly);
+      });
       var st2=document.getElementById("sacStatus");
       if(st2)st2.textContent="SAC: "+total77+"/"+total90+" BGs, "+(assigned+extra+nearest)+" locations ("+assigned+" boundary + "+extra+" USAC + "+nearest+" nearest)";
     }).catch(function(){
@@ -238,6 +285,44 @@ function fetchNext(){
           if(d<bestDist){bestDist=d;bestSac=sp.sac;}
         }
         if(bestSac){m.s=bestSac;nearest++;}
+      });
+      // Generate convex hull boundaries for uncovered marker clusters
+      function chull2(pts){
+        pts.sort(function(a,b){return a.lng-b.lng||a.lat-b.lat;});
+        if(pts.length<=1)return pts;
+        function cr(O,A,B){return(A.lng-O.lng)*(B.lat-O.lat)-(A.lat-O.lat)*(B.lng-O.lng);}
+        var lo=[];for(var i=0;i<pts.length;i++){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],pts[i])<=0)lo.pop();lo.push(pts[i]);}
+        var up=[];for(var i=pts.length-1;i>=0;i--){while(up.length>=2&&cr(up[up.length-2],up[up.length-1],pts[i])<=0)up.pop();up.push(pts[i]);}
+        lo.pop();up.pop();return lo.concat(up);
+      }
+      var outside2=[];
+      allMarkers.forEach(function(m){
+        var ins=false;
+        for(var i=0;i<sacPolys.length;i++){var sp=sacPolys[i];if(m.lat>=sp.s&&m.lat<=sp.n&&m.lng>=sp.w&&m.lng<=sp.e){ins=true;break;}}
+        if(!ins)outside2.push({lat:m.lat,lng:m.lng,s:m.s});
+      });
+      var gd2={};
+      outside2.forEach(function(m){
+        var gk=Math.floor(m.lat/0.15)+"_"+Math.floor(m.lng/0.15)+"_"+m.s;
+        if(!gd2[gk])gd2[gk]=[];gd2[gk].push(m);
+      });
+      var cm3={};Object.keys(gd2).forEach(function(k){var p=k.split("_");cm3[k]={r:parseInt(p[0]),c:parseInt(p[1]),sac:p[2],pts:gd2[k],comp:-1};});
+      var cid2=0,comps2={};
+      Object.keys(cm3).forEach(function(k){
+        if(cm3[k].comp>=0)return;
+        var q=[k];cm3[k].comp=cid2;comps2[cid2]=[];
+        while(q.length>0){var cu=q.shift();var cl=cm3[cu];comps2[cid2]=comps2[cid2].concat(cl.pts);
+          for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){if(!dr&&!dc)continue;var nk=(cl.r+dr)+"_"+(cl.c+dc)+"_"+cl.sac;
+            if(cm3[nk]&&cm3[nk].comp<0){cm3[nk].comp=cid2;q.push(nk);}}
+        }cid2++;
+      });
+      Object.keys(comps2).forEach(function(id){
+        var pts=comps2[id];if(pts.length<10)return;
+        var hull=chull2(pts);if(hull.length<3)return;
+        var ct={lat:hull.reduce(function(a,p){return a+p.lat},0)/hull.length,lng:hull.reduce(function(a,p){return a+p.lng},0)/hull.length};
+        var buf=hull.map(function(p){return[ct.lat+(p.lat-ct.lat)*1.03,ct.lng+(p.lng-ct.lng)*1.03];});
+        var poly=L.polygon(buf,{color:SAC_COLORS[pts[0].s],weight:2,opacity:0.6,fillColor:SAC_COLORS[pts[0].s],fillOpacity:0.05,dashArray:"5,5"});
+        poly._sac=pts[0].s;sacLayer.addLayer(poly);
       });
       var st2=document.getElementById("sacStatus");
       if(st2)st2.textContent="SAC: "+total77+"/"+total90+" BGs, "+(assigned+nearest)+" locations assigned";
