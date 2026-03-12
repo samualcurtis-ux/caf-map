@@ -168,7 +168,7 @@ function fetchNext(){
       var b=ly.getBounds();
       sacPolys.push({poly:ly,sac:ly._sac,s:b.getSouth(),n:b.getNorth(),w:b.getWest(),e:b.getEast()});
     });
-    // Assign each marker to a SAC
+    // Assign each marker to a SAC via point-in-polygon
     var assigned=0;
     allMarkers.forEach(function(m){
       for(var i=0;i<sacPolys.length;i++){
@@ -178,9 +178,40 @@ function fetchNext(){
       }
     });
     var st=document.getElementById("sacStatus");
-    if(st)st.textContent="SAC boundaries loaded \u2014 "+total77+" / "+total90+" BGs, "+assigned+" locations assigned";
+    if(st)st.textContent="SAC boundaries loaded \u2014 assigning locations...";
+    // Fallback: fetch USAC deployed locations for unassigned markers
+    function hk(lat,lng){return ''+(Math.round(lat*10000)*1000000+(Math.round(lng*10000)+1000000));}
+    function tryMatchSet(set,lat,lng){
+      var k=hk(lat,lng);if(set.has(k))return true;
+      var offsets=[-1,1];
+      for(var i=0;i<offsets.length;i++){
+        if(set.has(''+(( Math.round(lat*10000)+offsets[i])*1000000+(Math.round(lng*10000)+1000000))))return true;
+        if(set.has(''+( Math.round(lat*10000)*1000000+(Math.round(lng*10000)+offsets[i]+1000000))))return true;
+      }
+      return false;
+    }
+    Promise.all([
+      fetch('https://opendata.usac.org/resource/r59r-rpip.json?$select=latitude,longitude&$where=study_area_code=%27439077%27&$limit=50000').then(function(r){return r.json();}),
+      fetch('https://opendata.usac.org/resource/r59r-rpip.json?$select=latitude,longitude&$where=study_area_code=%27439090%27&$limit=50000').then(function(r){return r.json();})
+    ]).then(function(res){
+      var k77=new Set(),k90=new Set();
+      res[0].forEach(function(r){var la=parseFloat(r.latitude),lo=parseFloat(r.longitude);if(!isNaN(la))k77.add(hk(la,lo));});
+      res[1].forEach(function(r){var la=parseFloat(r.latitude),lo=parseFloat(r.longitude);if(!isNaN(la))k90.add(hk(la,lo));});
+      var extra=0;
+      allMarkers.forEach(function(m){
+        if(m.s)return;
+        if(tryMatchSet(k77,m.lat,m.lng)){m.s="439077";extra++;}
+        else if(tryMatchSet(k90,m.lat,m.lng)){m.s="439090";extra++;}
+      });
+      var st2=document.getElementById("sacStatus");
+      if(st2)st2.textContent="SAC: "+total77+"/"+total90+" BGs, "+(assigned+extra)+" locations ("+assigned+" boundary + "+extra+" USAC)";
+    }).catch(function(){
+      var st2=document.getElementById("sacStatus");
+      if(st2)st2.textContent="SAC: "+total77+"/"+total90+" BGs, "+assigned+" locations assigned";
+    });
     return;
   }
+
 
   var co=coKeys[idx++];
   var st=co.substring(0,2),cn=co.substring(2,5);
