@@ -151,10 +151,37 @@ var coKeys=Object.keys(counties);
 var idx=0;
 function fetchNext(){
   if(idx>=coKeys.length){
+    // Point-in-polygon ray casting
+    function pip(lat,lng,poly){
+      var pts=poly.getLatLngs()[0];
+      var n=pts.length,inside=false;
+      for(var i=0,j=n-1;i<n;j=i++){
+        var yi=pts[i].lat,xi=pts[i].lng;
+        var yj=pts[j].lat,xj=pts[j].lng;
+        if(((yi>lat)!==(yj>lat))&&(lng<(xj-xi)*(lat-yi)/(yj-yi)+xi))inside=!inside;
+      }
+      return inside;
+    }
+    // Build array of SAC polygons with bounds for fast rejection
+    var sacPolys=[];
+    sacLayer.eachLayer(function(ly){
+      var b=ly.getBounds();
+      sacPolys.push({poly:ly,sac:ly._sac,s:b.getSouth(),n:b.getNorth(),w:b.getWest(),e:b.getEast()});
+    });
+    // Assign each marker to a SAC
+    var assigned=0;
+    allMarkers.forEach(function(m){
+      for(var i=0;i<sacPolys.length;i++){
+        var sp=sacPolys[i];
+        if(m.lat<sp.s||m.lat>sp.n||m.lng<sp.w||m.lng>sp.e)continue;
+        if(pip(m.lat,m.lng,sp.poly)){m.s=sp.sac;assigned++;break;}
+      }
+    });
     var st=document.getElementById("sacStatus");
-    if(st)st.textContent="SAC boundaries loaded — "+total77+" / "+total90+" block groups";
+    if(st)st.textContent="SAC boundaries loaded \u2014 "+total77+" / "+total90+" BGs, "+assigned+" locations assigned";
     return;
   }
+
   var co=coKeys[idx++];
   var st=co.substring(0,2),cn=co.substring(2,5);
   fetch("https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2023/MapServer/10/query?where=STATE%3D%27"+st+"%27+AND+COUNTY%3D%27"+cn+"%27&outFields=GEOID&outSR=4326&f=geojson")
