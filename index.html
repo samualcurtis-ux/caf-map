@@ -42,12 +42,12 @@ html,body{width:100%;height:100%;margin:0;padding:0;font-family:'Segoe UI',Arial
 </head>
 <body>
 <div id="map"></div>
-<div class="legend"><h3>AtLink CAF II — 25/3 Qualification</h3><div class="sub">Updated Mar 09, 2026 — P(DL≥25 &amp; UL≥3) Model (13,914 AtLink Addresses)</div><div class="sec">Tarana Fixed Wireless</div><div class="r"><div class="d" style="background:#2d8a4e;"></div>Tarana Serviceable: 16,060<span class="p">(92.3%)</span></div><div class="sec">T-Mobile / Titans FWA (25/3 Threshold)</div><div class="r"><div class="d" style="background:#17a2b8;"></div>T5100 High Confidence: 547<span class="p">(1.9%)</span></div><div class="r"><div class="d" style="background:#3498db;"></div>T5400 High Confidence: 254<span class="p">(1.3%)</span></div><div class="r"><div class="d" style="background:#f39c12;"></div>T5400 Moderate: 222<span class="p">(1.0%)</span></div><div class="r"><div class="d" style="background:#e67e22;"></div>T5400 Low: 107<span class="p">(0.5%)</span></div><div class="r"><div class="d" style="background:#95a5a6;"></div>Awaiting File 2: 83<span class="p">(2.6%)</span></div><div class="r"><div class="d" style="background:#e74c3c;"></div>Unlikely / No Data: 121<span class="p">(0.4%)</span></div><div class="sec">Infrastructure</div><div class="r"><div class="tri"></div>Tarana Towers (146)</div><hr><div class="tot">High Confidence: 16,610 / 17,394 (95.5%)</div><div class="tot" style="font-size:12px;color:#666;">+ Moderate: 16,782 (96.5%)</div><div class="meta">Speed Threshold: 25 Mbps DL / 3 Mbps UL<br>CPE: GT-Titan5100 (window) / GT-Titan5400 (outdoor)<br>Model: Global Telecom FWA Multi-Band NR</div></div><div class="ctrl-wrap"><div class="stats"><h4>Coverage Breakdown (25/3)</h4><div class="bar"><div style="width:92.3%;background:#2d8a4e;" title="Tarana"></div><div style="width:1.9%;background:#17a2b8;" title="T5100 High"></div><div style="width:1.3%;background:#3498db;" title="T5400 High"></div><div style="width:1.0%;background:#f39c12;" title="Moderate"></div><div style="width:0.5%;background:#e67e22;" title="Low"></div><div style="width:2.6%;background:#95a5a6;" title="Awaiting"></div><div style="width:0.4%;background:#e74c3c;" title="Gap"></div></div><div style="font-size:11px;color:#666;"><b style="color:#2d8a4e;">92.3%</b> Tarana | <b style="color:#17a2b8;">3.2%</b> Titans High | <b style="color:#f39c12;">1.0%</b> Mod | <b style="color:#e74c3c;">61</b> Gap</div></div><div class="lc-box"><div class="sec">Coverage Areas</div><label><input type="checkbox" checked="" onchange="toggle(taranaGeo,this)"> Tarana Coverage</label><label><input type="checkbox" checked="" onchange="toggle(tmobileGeo,this)"> T-Mobile Coverage</label><div class="sec">Locations</div><label><input type="checkbox" checked="" onchange="toggle(layers[0],this)"> Tarana Serviceable</label><label><input type="checkbox" checked="" onchange="toggle(layers[1],this)"> T5100 High Confidence</label><label><input type="checkbox" checked="" onchange="toggle(layers[2],this)"> T5400 High Confidence</label><label><input type="checkbox" checked="" onchange="toggle(layers[3],this)"> T5400 Moderate</label><label><input type="checkbox" checked="" onchange="toggle(layers[4],this)"> T5400 Low</label><label><input type="checkbox" checked="" onchange="toggle(layers[5],this)"> Awaiting File 2</label><label><input type="checkbox" checked="" onchange="toggle(layers[6],this)"> Unlikely</label><label><input type="checkbox" checked="" onchange="toggle(layers[7],this)"> No Data</label><div class="sec">Infrastructure</div><label><input type="checkbox" checked="" onchange="toggle(towerLayer,this)"> Tarana Towers</label><div class="sec">Study Areas (SAC)</div><label><input type="checkbox" id="sacToggle" onchange="toggleSAC(this)" checked=""> SAC Boundaries</label><div style="margin:4px 0;"><select id="sacFilter" onchange="filterSAC(this.value)" style="width:100%;padding:3px;font-size:12px;"><option value="">All Study Areas</option></select><div id="sacStatus" style="font-size:11px;color:#888;margin-top:2px;">Loading SAC data...</div></div></div></div><script>
+<div class="legend"><h3>AtLink CAF II — 25/3 Qualification</h3><div class="sub">Updated Mar 09, 2026 — P(DL≥25 &amp; UL≥3) Model (13,914 AtLink Addresses)</div><div class="sec">Tarana Fixed Wireless</div><div class="r"><div class="d" style="background:#2d8a4e;"></div>Tarana Serviceable: 16,060<span class="p">(92.3%)</span></div><div class="sec">T-Mobile / Titans FWA (25/3 Threshold)</div><div class="r"><div class="d" style="background:#17a2b8;"></div>T5100 High Confidence: 547<span class="p">(1.9%)</span></div><div class="r"><div class="d" style="background:#3498db;"></div>T5400 High Confidence: 254<span class="p">(1.3%)</span></div><div class="r"><div class="d" style="background:#f39c12;"></div>T5400 Moderate: 222<span class="p">(1.0%)</span></div><div class="r"><div class="d" style="background:#e67e22;"></div>T5400 Low: 107<span class="p">(0.5%)</span></div><div class="r"><div class="d" style="background:#95a5a6;"></div>Awaiting File 2: 83<span class="p">(2.6%)</span></div><div class="r"><div class="d" style="background:#e74c3c;"></div>Unlikely / No Data: 121<span class="p">(0.4%)</span></div><div class="sec">Infrastructure</div><div class="r"><div class="tri"></div>Tarana Towers (146)</div><hr><div class="tot">High Confidence: 16,610 / 17,394 (95.5%)</div><div class="tot" style="font-size:12px;color:#666;">+ Moderate: 16,782 (96.5%)</div><div class="meta">Speed Threshold: 25 Mbps DL / 3 Mbps UL<br>CPE: GT-Titan5100 (window) / GT-Titan5400 (outdoor)<br>Model: Global Telecom FWA Multi-Band NR</div></div><div class="ctrl-wrap"><div class="stats"><h4>Coverage Breakdown (25/3)</h4><div class="bar"><div style="width:92.3%;background:#2d8a4e;" title="Tarana"></div><div style="width:1.9%;background:#17a2b8;" title="T5100 High"></div><div style="width:1.3%;background:#3498db;" title="T5400 High"></div><div style="width:1.0%;background:#f39c12;" title="Moderate"></div><div style="width:0.5%;background:#e67e22;" title="Low"></div><div style="width:2.6%;background:#95a5a6;" title="Awaiting"></div><div style="width:0.4%;background:#e74c3c;" title="Gap"></div></div><div style="font-size:11px;color:#666;"><b style="color:#2d8a4e;">92.3%</b> Tarana | <b style="color:#17a2b8;">3.2%</b> Titans High | <b style="color:#f39c12;">1.0%</b> Mod | <b style="color:#e74c3c;">61</b> Gap</div></div><div class="lc-box"><div class="sec">Coverage Areas</div><label><input type="checkbox" checked="" onchange="toggle(taranaGeo,this)"> Tarana Coverage</label><label><input type="checkbox" checked="" onchange="toggle(tmobileGeo,this)"> T-Mobile Coverage</label><div class="sec">Locations</div><label><input type="checkbox" checked="" onchange="toggle(layers[0],this)"> Tarana Serviceable</label><label><input type="checkbox" checked="" onchange="toggle(layers[1],this)"> T5100 High Confidence</label><label><input type="checkbox" checked="" onchange="toggle(layers[2],this)"> T5400 High Confidence</label><label><input type="checkbox" checked="" onchange="toggle(layers[3],this)"> T5400 Moderate</label><label><input type="checkbox" checked="" onchange="toggle(layers[4],this)"> T5400 Low</label><label><input type="checkbox" checked="" onchange="toggle(layers[5],this)"> Awaiting File 2</label><label><input type="checkbox" checked="" onchange="toggle(layers[6],this)"> Unlikely</label><label><input type="checkbox" checked="" onchange="toggle(layers[7],this)"> No Data</label><div class="sec">Infrastructure</div><label><input type="checkbox" checked="" onchange="toggle(towerLayer,this)"> Tarana Towers</label><div class="sec">Study Areas (SAC)</div><label><input type="checkbox" id="sacToggle" onchange="toggleSAC(this)"> SAC Boundaries</label><div style="margin:4px 0;"><select id="sacFilter" onchange="filterSAC(this.value)" style="width:100%;padding:3px;font-size:12px;"><option value="">All Study Areas</option><option value="439077">SAC 439077 — CAF II Auction</option><option value="439090">SAC 439090 — CAF II Auction (95% Milestone)</option></select><div id="sacStatus" style="font-size:11px;color:#888;margin-top:2px;">Loading SAC data...</div></div></div></div><script>
 function toggle(layer,el){if(el.checked)map.addLayer(layer);else map.removeLayer(layer);}
 var allMarkers=[];
-var sacLayer=null,sacBounds={},locSAC={};
-var SAC_COLORS={"435215":"#1a5276","431165":"#7d3c98","432030":"#b9770e","431977":"#1e8449","432023":"#c0392b"};
-var SAC_SHORT={"435215":"Southwestern Bell-OK / AT&T","431165":"Valor Telecom / Windstream","432030":"Totah Telephone Co.","431977":"Central OK Tel.","432023":"Shidler Tel. Co."};
+var sacLayer=null,sacBounds={},sacHulls={};
+var SAC_COLORS={"439077":"#1a5276","439090":"#7d3c98"};
+var SAC_LABELS={"439077":"SAC 439077","439090":"SAC 439090 (95% Milestone)"};
 function toggleSAC(el){if(sacLayer){if(el.checked)map.addLayer(sacLayer);else map.removeLayer(sacLayer);}}
 function filterSAC(sac){
   allMarkers.forEach(function(m){
@@ -56,34 +56,17 @@ function filterSAC(sac){
   });
   if(sac&&sacBounds[sac])map.fitBounds(sacBounds[sac],{padding:[20,20]});
 }
-function pip(px,py,ring){
-  var inside=false;
-  for(var i=0,j=ring.length-1;i<ring.length;j=i++){
-    var xi=ring[i][0],yi=ring[i][1],xj=ring[j][0],yj=ring[j][1];
-    if((yi>py)!==(yj>py)&&px<(xj-xi)*(py-yi)/(yj-yi)+xi)inside=!inside;
-  }
-  return inside;
+function convexHull(pts){
+  pts.sort(function(a,b){return a[0]-b[0]||a[1]-b[1];});
+  if(pts.length<=1)return pts;
+  var lower=[];
+  for(var i=0;i<pts.length;i++){while(lower.length>=2&&cross(lower[lower.length-2],lower[lower.length-1],pts[i])<=0)lower.pop();lower.push(pts[i]);}
+  var upper=[];
+  for(var i=pts.length-1;i>=0;i--){while(upper.length>=2&&cross(upper[upper.length-2],upper[upper.length-1],pts[i])<=0)upper.pop();upper.push(pts[i]);}
+  upper.pop();lower.pop();
+  return lower.concat(upper);
 }
-function findSAC(lat,lng,feats){
-  for(var f=0;f<feats.length;f++){
-    var g=feats[f].geometry;
-    var rings=g.type==="MultiPolygon"?g.coordinates.flat():g.coordinates;
-    for(var r=0;r<rings.length;r++){if(pip(lng,lat,rings[r]))return feats[f].properties.SAC;}
-  }
-  return null;
-}
-function nearestSAC(lat,lng,feats){
-  var centroids={};
-  feats.forEach(function(f){
-    var rings=f.geometry.type==="MultiPolygon"?f.geometry.coordinates.flat():f.geometry.coordinates;
-    var sx=0,sy=0,n=0;
-    rings.forEach(function(ring){ring.forEach(function(c){sx+=c[0];sy+=c[1];n++;});});
-    centroids[f.properties.SAC]=[sx/n,sy/n];
-  });
-  var best=null,bestD=Infinity;
-  for(var s in centroids){var dx=centroids[s][0]-lng,dy=centroids[s][1]-lat;var dist=dx*dx+dy*dy;if(dist<bestD){bestD=dist;best=s;}}
-  return best;
-}
+function cross(O,A,B){return(A[0]-O[0])*(B[1]-O[1])-(A[1]-O[1])*(B[0]-O[0]);}
 
 var map=L.map("map",{center:[35.55,-96.85],zoom:7,preferCanvas:true,zoomControl:true});
 L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{attribution:"OpenStreetMap CARTO",maxZoom:19,subdomains:"abcd"}).addTo(map);
@@ -111,44 +94,58 @@ if(d[6])p+='<br>T5400 UL: '+d[6]+' Mbps';
 if(d[7])p+='<br>Nearest Tower: '+d[7]+' ('+d[8]+' km)';
 var _m=L.circleMarker([d[0],d[1]],{radius:R[d[2]],fillColor:C[d[2]],color:'#333',weight:0.3,opacity:0.8,fillOpacity:O[d[2]]}).bindPopup(p).addTo(layers[d[2]]);allMarkers.push({m:_m,s:null,c:d[2],lat:d[0],lng:d[1]});
 });layers[cls].addTo(map);}
-// Load SAC boundaries at runtime
+// Load SAC assignment from USAC deployment data
 (function(){
-  var url="https://services.arcgis.com/YnOQrIGdN9JGtBh4/arcgis/rest/services/study_areas_21aug24/FeatureServer/0/query?"+
-    "where=SAC+IN+(435215,431165,432030,431977,432023)&outFields=SAC,CO_NAME,HOCO&returnGeometry=true&outSR=4326&maxAllowableOffset=0.003&f=geojson";
-  fetch(url).then(function(r){return r.json();}).then(function(geo){
-    sacLayer=L.geoJson(geo,{
-      style:function(f){return{color:SAC_COLORS[f.properties.SAC]||"#8B0000",weight:2.5,fillColor:SAC_COLORS[f.properties.SAC]||"#8B0000",fillOpacity:0.08,dashArray:"6,4"};},
-      onEachFeature:function(f,l){l.bindPopup("<b>"+f.properties.CO_NAME+"</b><br>SAC: "+f.properties.SAC);}
-    });
-    if(document.getElementById("sacToggle").checked)sacLayer.addTo(map);
-    // Compute SAC bounds
-    geo.features.forEach(function(f){var b=L.geoJson(f).getBounds();sacBounds[f.properties.SAC]=b;});
-    // Run point-in-polygon assignment for all markers
-    var counts={};
+  var base="https://opendata.usac.org/resource/r59r-rpip.json";
+  var q077=base+"?$where=study_area_code=%27439077%27&$select=latitude,longitude&$limit=50000";
+  var q090=base+"?$where=study_area_code=%27439090%27&$select=latitude,longitude&$limit=50000";
+  Promise.all([fetch(q077).then(function(r){return r.json();}),fetch(q090).then(function(r){return r.json();})]).then(function(res){
+    var pts077=res[0],pts090=res[1];
+    var grid={};
+    function addToGrid(lat,lng,sac){
+      var k=Math.round(lat*100)+","+Math.round(lng*100);
+      if(!grid[k])grid[k]=[];
+      grid[k].push({lat:+lat,lng:+lng,sac:sac});
+    }
+    pts077.forEach(function(p){addToGrid(p.latitude,p.longitude,"439077");});
+    pts090.forEach(function(p){addToGrid(p.latitude,p.longitude,"439090");});
+    var counts={"439077":0,"439090":0};
     allMarkers.forEach(function(m){
-      var sac=findSAC(m.lat,m.lng,geo.features);
-      if(!sac)sac=nearestSAC(m.lat,m.lng,geo.features);
-      m.s=sac;
-      counts[sac]=(counts[sac]||0)+1;
+      var best=null,bestD=Infinity;
+      for(var di=-1;di<=1;di++)for(var dj=-1;dj<=1;dj++){
+        var nk=(Math.round(m.lat*100)+di)+","+(Math.round(m.lng*100)+dj);
+        if(grid[nk])grid[nk].forEach(function(p){
+          var d=(p.lat-m.lat)*(p.lat-m.lat)+(p.lng-m.lng)*(p.lng-m.lng);
+          if(d<bestD){bestD=d;best=p.sac;}
+        });
+      }
+      m.s=best||"439077";
+      counts[m.s]=(counts[m.s]||0)+1;
     });
-    // Update dropdown
     var sel=document.getElementById("sacFilter");
-    var sacList=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];});
-    sacList.forEach(function(s){
-      var opt=document.createElement("option");
-      opt.value=s;
-      opt.text=(SAC_SHORT[s]||s)+" ("+counts[s].toLocaleString()+")";
-      sel.appendChild(opt);
+    sel.options[1].text="SAC 439077 — CAF II Auction ("+counts["439077"].toLocaleString()+")";
+    sel.options[2].text="SAC 439090 — 95% Milestone ("+counts["439090"].toLocaleString()+")";
+    var sacPts={"439077":[],"439090":[]};
+    allMarkers.forEach(function(m){sacPts[m.s].push([m.lat,m.lng]);});
+    var fg=L.featureGroup();
+    ["439077","439090"].forEach(function(sac){
+      var hull=convexHull(sacPts[sac]);
+      if(hull.length>2){
+        var poly=L.polygon(hull,{color:SAC_COLORS[sac],weight:2.5,fillColor:SAC_COLORS[sac],fillOpacity:0.06,dashArray:"6,4"});
+        poly.bindPopup("<b>"+SAC_LABELS[sac]+"</b><br>Locations: "+counts[sac].toLocaleString());
+        fg.addLayer(poly);
+        sacBounds[sac]=poly.getBounds();
+      }
     });
-    // Update popup info with SAC
+    sacLayer=fg;
+    if(document.getElementById("sacToggle").checked)sacLayer.addTo(map);
     allMarkers.forEach(function(m){
       var old=m.m.getPopup().getContent();
-      m.m.getPopup().setContent(old+"<br>SAC: "+(SAC_SHORT[m.s]||m.s));
+      m.m.getPopup().setContent(old+"<br>SAC: "+SAC_LABELS[m.s]);
     });
-    document.getElementById("sacStatus").textContent="SAC data loaded ("+geo.features.length+" areas)";
+    document.getElementById("sacStatus").textContent="SAC data loaded — "+counts["439077"].toLocaleString()+" / "+counts["439090"].toLocaleString()+" locations";
   }).catch(function(e){
-    document.getElementById("sacStatus").textContent="SAC load failed: "+e.message;
-    document.getElementById("sacToggle").checked=false;
+    document.getElementById("sacStatus").textContent="SAC load error: "+e.message;
   });
 })();
 
