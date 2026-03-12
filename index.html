@@ -26,6 +26,15 @@
 							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
 								)();
 								</script>
+							<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
 							
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -72,7 +81,17 @@ function filterSAC(sac){
     if(!sac||m.s===sac){if(!layers[m.c].hasLayer(m.m))layers[m.c].addLayer(m.m);}
     else{layers[m.c].removeLayer(m.m);}
   });
-  if(sac&&sacBounds[sac])map.fitBounds(sacBounds[sac],{padding:[20,20]});
+  if(sacLayer){
+    sacLayer.eachLayer(function(ly){
+      if(!sac||ly._sac===sac)ly.setStyle({opacity:0.8,fillOpacity:0.08});
+      else ly.setStyle({opacity:0,fillOpacity:0});
+    });
+    if(sac){
+      var b=L.latLngBounds([]);
+      sacLayer.eachLayer(function(ly){if(ly._sac===sac)b.extend(ly.getBounds());});
+      if(b.isValid())map.fitBounds(b,{padding:[20,20]});
+    }
+  }
 }
 function convexHull(pts){
   pts.sort(function(a,b){return a[0]-b[0]||a[1]-b[1];});
@@ -114,57 +133,57 @@ var _m=L.circleMarker([d[0],d[1]],{radius:R[d[2]],fillColor:C[d[2]],color:'#333'
 });layers[cls].addTo(map);}
 // Load SAC assignment from USAC deployment data
 (function(){
-  var base="https://opendata.usac.org/resource/r59r-rpip.json";
-  var q077=base+"?$where=study_area_code=%27439077%27&$select=latitude,longitude&$limit=50000";
-  var q090=base+"?$where=study_area_code=%27439090%27&$select=latitude,longitude&$limit=50000";
-  Promise.all([fetch(q077).then(function(r){return r.json();}),fetch(q090).then(function(r){return r.json();})]).then(function(res){
-    var pts077=res[0],pts090=res[1];
-    var grid={};
-    function addToGrid(lat,lng,sac){
-      var k=Math.round(lat*100)+","+Math.round(lng*100);
-      if(!grid[k])grid[k]=[];
-      grid[k].push({lat:+lat,lng:+lng,sac:sac});
-    }
-    pts077.forEach(function(p){addToGrid(p.latitude,p.longitude,"439077");});
-    pts090.forEach(function(p){addToGrid(p.latitude,p.longitude,"439090");});
-    var counts={"439077":0,"439090":0};
-    allMarkers.forEach(function(m){
-      var best=null,bestD=Infinity;
-      for(var di=-1;di<=1;di++)for(var dj=-1;dj<=1;dj++){
-        var nk=(Math.round(m.lat*100)+di)+","+(Math.round(m.lng*100)+dj);
-        if(grid[nk])grid[nk].forEach(function(p){
-          var d=(p.lat-m.lat)*(p.lat-m.lat)+(p.lng-m.lng)*(p.lng-m.lng);
-          if(d<bestD){bestD=d;best=p.sac;}
-        });
-      }
-      m.s=best||"439077";
-      counts[m.s]=(counts[m.s]||0)+1;
-    });
-    var sel=document.getElementById("sacFilter");
-    sel.options[1].text="SAC 439077 — CAF II Auction ("+counts["439077"].toLocaleString()+")";
-    sel.options[2].text="SAC 439090 — 95% Milestone ("+counts["439090"].toLocaleString()+")";
-    var sacPts={"439077":[],"439090":[]};
-    allMarkers.forEach(function(m){sacPts[m.s].push([m.lat,m.lng]);});
-    var fg=L.featureGroup();
-    ["439077","439090"].forEach(function(sac){
-      var hull=convexHull(sacPts[sac]);
-      if(hull.length>2){
-        var poly=L.polygon(hull,{color:SAC_COLORS[sac],weight:2.5,fillColor:SAC_COLORS[sac],fillOpacity:0.06,dashArray:"6,4"});
-        poly.bindPopup("<b>"+SAC_LABELS[sac]+"</b><br>Locations: "+counts[sac].toLocaleString());
-        fg.addLayer(poly);
-        sacBounds[sac]=poly.getBounds();
-      }
-    });
-    sacLayer=fg;
-    if(document.getElementById("sacToggle").checked)sacLayer.addTo(map);
-    allMarkers.forEach(function(m){
-      var old=m.m.getPopup().getContent();
-      m.m.getPopup().setContent(old+"<br>SAC: "+SAC_LABELS[m.s]);
-    });
-    document.getElementById("sacStatus").textContent="SAC data loaded — "+counts["439077"].toLocaleString()+" / "+counts["439090"].toLocaleString()+" locations";
-  }).catch(function(e){
-    document.getElementById("sacStatus").textContent="SAC load error: "+e.message;
+var sacBGs={
+  "439077":"400370207052,401190110002,400874002011,401091092022,401190111012,401190111022,400836005001,400819613001,400370201011,401091090011,400370209003,401091092014,401190110004,400819613003,400836006002,401190111021,401190113011,400370207041,401255010011,400836006003,400819617001,401190113012,400819611001,401190111023,400634847001,401091092012,400874004001,400836008002,400634846001,400836008001,400836003001,401190111013,401091092013,401190110001,400370215001,401190114001,400370210003,400836006001,400634847002,400370208002,401190114002,401190112001,401190111011,401091090012,400696601982,401255010043,400819614003,400819616002,400836004001,400819612001,400370207071,401110009023,400634850001,401179573003,400819615001,401091092011,401091085121,401091090043,400836004002,400370216001,400836005005,401070807003,400819616001,400874002013,400370207062,401091092021,401255009001,400836005003,400819614001,401091081012,400370214001,401255010042,401091086021,400272023011,401255009002,400634846003,401091086011,400836005004,400370207072,401091090042,401255010041,400819614002,401091090041,400510025031,400370210002,401070807002,401070808001,401070807001,401091085112,401091085111,400370207061,401455013001,400370210001,401455012002,401455012001,401455013003,401455013002,401310060001,401310059001,401310060002",
+  "439090":"400370207042,400836007001,400836005006,400634849001,400819612003,400634846002,401139400032,400836002001,401139400033,400819617002,400836002002,400819612002,400836004003,400370208001,400819613002,401179574003,400173010011,400836003002,400836007002,401139400091,401139400052,401139400081,401139400022,401139400043,401139400021,401139400041,401139400024,401139400042,401139400072,401139400111,401139400083,401179574002,401139400102,401139400025,401179571004,401179575003,401179575001,401179571001"
+};
+var counties={};
+Object.keys(sacBGs).forEach(function(sac){
+  sacBGs[sac].split(",").forEach(function(bg){
+    var co=bg.substring(0,5);
+    if(!counties[co])counties[co]=[];
+    counties[co].push({bg:bg,sac:sac});
   });
+});
+sacLayer=L.layerGroup();
+var total77=0,total90=0;
+var coKeys=Object.keys(counties);
+var idx=0;
+function fetchNext(){
+  if(idx>=coKeys.length){
+    var st=document.getElementById("sacStatus");
+    if(st)st.textContent="SAC boundaries loaded — "+total77+" / "+total90+" block groups";
+    return;
+  }
+  var co=coKeys[idx++];
+  var st=co.substring(0,2),cn=co.substring(2,5);
+  fetch("https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2023/MapServer/10/query?where=STATE%3D%27"+st+"%27+AND+COUNTY%3D%27"+cn+"%27&outFields=GEOID&outSR=4326&f=geojson")
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(data.features){
+      var bgMap={};
+      counties[co].forEach(function(e){bgMap[e.bg]=e.sac;});
+      data.features.forEach(function(f){
+        var sac=bgMap[f.properties.GEOID];
+        if(!sac)return;
+        var color=SAC_COLORS[sac];
+        var geom=f.geometry;
+        var rings=[];
+        if(geom.type==="Polygon")rings=[geom.coordinates[0]];
+        else if(geom.type==="MultiPolygon")geom.coordinates.forEach(function(p){rings.push(p[0]);});
+        rings.forEach(function(ring){
+          var latlngs=ring.map(function(c){return[c[1],c[0]];});
+          var poly=L.polygon(latlngs,{color:color,weight:1.5,fillColor:color,fillOpacity:0.08,dashArray:"5,5"});
+          poly._sac=sac;
+          sacLayer.addLayer(poly);
+          if(sac==="439077")total77++;else total90++;
+        });
+      });
+    }
+    fetchNext();
+  }).catch(function(){fetchNext();});
+}
+fetchNext();
 })();
 
 
